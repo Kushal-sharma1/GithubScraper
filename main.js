@@ -18,18 +18,18 @@ function cb(err,res,body){
 }
 
 function handleHtml( body){
-console.log(" i am in github");
+// console.log(" github");
 let SelectTool = cheerio.load(body);
 let folderLink = path.join(__dirname,"Scrapped");
 if(!fs.existsSync(folderLink)){
   fs.mkdirSync(folderLink);
 }
-console.log("folder made");
+
 let anchorArr =SelectTool('.no-underline.d-flex.flex-column.flex-justify-center');
 for(let i=0;i<anchorArr.length;i++){
     let rLink = SelectTool(anchorArr[i]).attr('href');
     let mainLink ="https://github.com"+rLink;
-    console.log(mainLink);
+    // console.log(mainLink);
     extractData(mainLink,folderLink);
 }
 

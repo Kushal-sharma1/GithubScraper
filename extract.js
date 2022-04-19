@@ -20,10 +20,10 @@ function cb(err,res,body){
 
 function handleHtml(body){
     SelectTool =cheerio.load(body);
-    console.log("I am in topic");
+    // console.log(" topic");
     let topicName =SelectTool('.h1').text().trim();
     topicName.replace(" ","");
-    console.log(topicName);
+    // console.log(topicName);
     let topicFolder = path.join(folder,topicName);
     if(!fs.existsSync(topicFolder)){
         fs.mkdirSync(topicFolder);
@@ -41,7 +41,7 @@ function handleHtml(body){
     //  console.log(mainLink);
      findIssue(mainLink,pathforissue);    
     }
-    console.log("----end one topic -----");
+    // console.log("----end one topic -----");
 }
 
 module.exports={
