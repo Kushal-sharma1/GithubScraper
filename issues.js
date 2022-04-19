@@ -6,11 +6,10 @@ const fs =require('fs');
 function findIssue ( url,projectPath){
 
     request(url,function cb(err,res,body){
-        let projectPathN =projectPath;
          if(err){
              console.log(err);
          }else{
-             handleHtml(body,projectPathN);
+             handleHtml(body,projectPath);
          }
      });
     
